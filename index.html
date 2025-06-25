@@ -184,6 +184,25 @@
             text-align: right;
         }
 
+        /* Estilo para o botão PayDay */
+        .payday-btn {
+            background-color: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-left: 15px;
+        }
+
+        .payday-btn:hover {
+            background-color: #FFC000;
+            transform: scale(1.05);
+        }
+
         /* Estilo para o gráfico de linhas com eixos - AGORA NA DIREITA */
         .chart-container {
             position: fixed;
@@ -366,6 +385,7 @@
     <div class="reais-container">
         <div class="reais-label">REAIS:</div>
         <div class="reais-value" id="reaisValue">500</div>
+        <button class="payday-btn" id="paydayBtn">PayDay</button>
     </div>
 
     <!-- Gráfico de linhas com eixos - AGORA NA DIREITA -->
@@ -688,6 +708,13 @@
             const sellAmount = document.getElementById('sellAmount');
             const buyAmount = document.getElementById('buyAmount');
             const reaisValue = document.getElementById('reaisValue');
+            const paydayBtn = document.getElementById('paydayBtn');
+
+            // Função para adicionar 125 reais quando o botão PayDay é clicado
+            paydayBtn.addEventListener('click', function() {
+                reais += 125;
+                reaisValue.textContent = reais;
+            });
 
             // Função para editar valores fixos
             function setupFixedValueEditing() {
